@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MvcShopDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OstanId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FactorId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Qty" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyDate" Type="datetime" Nullable="false" />
+    <Property Name="FlloweCode" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CodePosti" Type="varchar" MaxLength="15" />
+    <Property Name="IsFinish" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ostans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Summery" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Tags" Type="nvarchar" MaxLength="200" />
+    <Property Name="Like" Type="int" Nullable="false" />
+    <Property Name="Dislike" Type="int" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Resellers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OstanId" Type="int" Nullable="false" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactUs" Type="ntext" />
+    <Property Name="AboutUs" Type="ntext" />
+    <Property Name="Help" Type="ntext" />
+    <Property Name="PrivacyPolicy" Type="ntext" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="SmtpServer" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="EmailPassword" Type="varchar" MaxLength="50" />
+    <Property Name="EmailSenderName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Picture1" Type="nvarchar" MaxLength="200" />
+    <Property Name="Picture2" Type="nvarchar" MaxLength="200" />
+    <Property Name="Picture3" Type="nvarchar" MaxLength="200" />
+    <Property Name="Picture4" Type="nvarchar" MaxLength="200" />
+    <Property Name="Picture5" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tell" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="Roles" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Cities_Ostans">
+    <End Role="Ostans" Type="Self.Ostans" Multiplicity="1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ostans">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="OstanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorItems_Factors">
+    <End Role="Factors" Type="Self.Factors" Multiplicity="1" />
+    <End Role="FactorItems" Type="Self.FactorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FactorItems">
+        <PropertyRef Name="FactorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorItems_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="FactorItems" Type="Self.FactorItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FactorItems">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Factors_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Factors" Type="Self.Factors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Factors">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Groups1" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Groups1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Resellers_Cities">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="Resellers" Type="Self.Resellers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resellers">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Resellers_Ostans">
+    <End Role="Ostans" Type="Self.Ostans" Multiplicity="1" />
+    <End Role="Resellers" Type="Self.Resellers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ostans">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Resellers">
+        <PropertyRef Name="OstanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MvcShopDbModelStoreContainer">
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactorItems" EntityType="Self.FactorItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Factors" EntityType="Self.Factors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ostans" EntityType="Self.Ostans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resellers" EntityType="Self.Resellers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cities_Ostans" Association="Self.FK_Cities_Ostans">
+      <End Role="Ostans" EntitySet="Ostans" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorItems_Factors" Association="Self.FK_FactorItems_Factors">
+      <End Role="Factors" EntitySet="Factors" />
+      <End Role="FactorItems" EntitySet="FactorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorItems_Products" Association="Self.FK_FactorItems_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="FactorItems" EntitySet="FactorItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Factors_Users" Association="Self.FK_Factors_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Factors" EntitySet="Factors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_Groups" Association="Self.FK_Groups_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Groups1" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Groups" Association="Self.FK_Products_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Resellers_Cities" Association="Self.FK_Resellers_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Resellers" EntitySet="Resellers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Resellers_Ostans" Association="Self.FK_Resellers_Ostans">
+      <End Role="Ostans" EntitySet="Ostans" />
+      <End Role="Resellers" EntitySet="Resellers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

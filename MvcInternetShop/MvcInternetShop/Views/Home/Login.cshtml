@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="block grid12">
+    <div class="breadcrumb">
+        <a href="/Home/Index">صفحه اصلی</a><span>›</span><a href="/Home/Login">ورود</a>
+    </div>
+</div>
+<div class="full12">
+    <div class="block grid12">
+        <h1 class="block-header">ورود به سایت</h1>
+        <div class="separator"></div>
+        <div class="block-standart">
+            <div class="form inline">
+                <div style="text-align:center; font-size:x-large; color:red">
+                    @ViewBag.Message
+                </div>
+                @using (Html.BeginForm())
+                {
+                    <div class="group">
+                        @Html.Label("نام کاربری", new { @class = "label" })
+                        <div class="controls">
+                            @Html.TextBox("Username", null, new { @class = "text", style = "width: 240px;" })
+                        </div>
+                    </div>
+                    <div class="group">
+                        @Html.Label("رمز عبور", new { @class = "label" })
+                        <div class="controls">
+                            @Html.Password("Password", null, new { @class = "text", style = "width: 240px;" })
+                        </div>
+                    </div>
+                    <div class="group">
+                        @Html.Label("مرا به خاطر پسار", new { @for = "RememberMe" })
+                        <div class="controls">
+                            @Html.CheckBox("RememberMe")
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="controls">
+                            <button class="button">ورود</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
